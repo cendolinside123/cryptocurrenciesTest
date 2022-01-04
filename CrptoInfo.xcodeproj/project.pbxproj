@@ -13,6 +13,7 @@
 		04BCC72D278493900093DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72B278493900093DD73 /* Main.storyboard */; };
 		04BCC72F278493920093DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72E278493920093DD73 /* Assets.xcassets */; };
 		04BCC732278493920093DD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC730278493920093DD73 /* LaunchScreen.storyboard */; };
+		04BCC73D2784A0F70093DD73 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC73C2784A0F70093DD73 /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		04BCC72E278493920093DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BCC731278493920093DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BCC733278493920093DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04BCC73C2784A0F70093DD73 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
 		3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.debug.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrptoInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		04BCC73927849D200093DD73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04BCC73C2784A0F70093DD73 /* Coin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BCC73D2784A0F70093DD73 /* Coin.swift in Sources */,
 				04BCC72A278493900093DD73 /* ViewController.swift in Sources */,
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
 			);
