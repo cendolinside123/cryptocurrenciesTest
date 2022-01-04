@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
-		04BCC728278493900093DD73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC727278493900093DD73 /* SceneDelegate.swift */; };
 		04BCC72A278493900093DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC729278493900093DD73 /* ViewController.swift */; };
 		04BCC72D278493900093DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72B278493900093DD73 /* Main.storyboard */; };
 		04BCC72F278493920093DD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72E278493920093DD73 /* Assets.xcassets */; };
@@ -18,12 +18,14 @@
 /* Begin PBXFileReference section */
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BCC725278493900093DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04BCC727278493900093DD73 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04BCC729278493900093DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04BCC72C278493900093DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BCC72E278493920093DD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BCC731278493920093DD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04BCC733278493920093DD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
+		3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.debug.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrptoInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				04BCC724278493900093DD73 /* CrptoInfo */,
 				04BCC723278493900093DD73 /* Products */,
+				0DDBB710D18308AB773864C8 /* Pods */,
+				75951BB5922066E210ABE92E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				04BCC725278493900093DD73 /* AppDelegate.swift */,
-				04BCC727278493900093DD73 /* SceneDelegate.swift */,
 				04BCC729278493900093DD73 /* ViewController.swift */,
 				04BCC72B278493900093DD73 /* Main.storyboard */,
 				04BCC72E278493920093DD73 /* Assets.xcassets */,
@@ -67,6 +71,24 @@
 			path = CrptoInfo;
 			sourceTree = "<group>";
 		};
+		0DDBB710D18308AB773864C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */,
+				1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		75951BB5922066E210ABE92E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BCC736278493920093DD73 /* Build configuration list for PBXNativeTarget "CrptoInfo" */;
 			buildPhases = (
+				AA364610248B7CC3E2E64326 /* [CP] Check Pods Manifest.lock */,
 				04BCC71E278493900093DD73 /* Sources */,
 				04BCC71F278493900093DD73 /* Frameworks */,
 				04BCC720278493900093DD73 /* Resources */,
+				639500254744E9E08C0672BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +157,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		639500254744E9E08C0672BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA364610248B7CC3E2E64326 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrptoInfo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04BCC71E278493900093DD73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +206,6 @@
 			files = (
 				04BCC72A278493900093DD73 /* ViewController.swift in Sources */,
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
-				04BCC728278493900093DD73 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +349,7 @@
 		};
 		04BCC737278493920093DD73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +379,7 @@
 		};
 		04BCC738278493920093DD73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
