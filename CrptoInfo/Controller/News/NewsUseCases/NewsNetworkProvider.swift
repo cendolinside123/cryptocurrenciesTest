@@ -7,5 +7,5 @@
 
 import Foundation
 protocol NewsNetworkProvider {
-    func fetchNews(category: String, success: @escaping ([News]) -> Void, failed: @escaping (Error) -> Void)
+    func fetchNews(category: String, completion: @escaping (NetworkResult<News>) -> Void)
 }
