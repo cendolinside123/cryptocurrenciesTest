@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */; };
+		04989A2E27854F17008E480C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04989A2D27854F17008E480C /* NewsViewController.swift */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
 		04BCC72A278493900093DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC729278493900093DD73 /* ViewController.swift */; };
 		04BCC72D278493900093DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72B278493900093DD73 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04989A2D27854F17008E480C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BCC725278493900093DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BCC729278493900093DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04989A2C27854EE5008E480C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04989A2D27854F17008E480C /* NewsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		04BCC719278493900093DD73 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		04BCC7472784AFDC0093DD73 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				04989A2C27854EE5008E480C /* ViewController */,
 				04BCC74D2784BC240093DD73 /* ViewModel */,
 				04BCC7482784B02B0093DD73 /* NewsUseCases */,
 			);
@@ -275,6 +286,7 @@
 				04BCC73D2784A0F70093DD73 /* Coin.swift in Sources */,
 				04BCC7462784AC5C0093DD73 /* NetworkResult.swift in Sources */,
 				04BCC74A2784B0460093DD73 /* NewsNetworkProvider.swift in Sources */,
+				04989A2E27854F17008E480C /* NewsViewController.swift in Sources */,
 				04BCC72A278493900093DD73 /* ViewController.swift in Sources */,
 				04BCC74C2784B2490093DD73 /* NewsUseCase.swift in Sources */,
 				04BCC73F2784A6660093DD73 /* News.swift in Sources */,
