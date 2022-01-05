@@ -10,6 +10,7 @@
 		03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */; };
 		04989A2E27854F17008E480C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04989A2D27854F17008E480C /* NewsViewController.swift */; };
 		04AD76E627859A86008D5F83 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */; };
+		04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
 		04BCC72A278493900093DD73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC729278493900093DD73 /* ViewController.swift */; };
 		04BCC72D278493900093DD73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCC72B278493900093DD73 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		04989A2D27854F17008E480C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointTableViewCell.swift; sourceTree = "<group>"; };
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BCC725278493900093DD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BCC729278493900093DD73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		04AD76E2278599D8008D5F83 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				04AD76E72785DAC4008D5F83 /* CoinTableViewCell */,
 				04AD76E327859A5D008D5F83 /* NewsTableViewCell */,
 			);
 			path = CustomView;
@@ -86,6 +89,22 @@
 			isa = PBXGroup;
 			children = (
 				04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04AD76E72785DAC4008D5F83 /* CoinTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04AD76E82785DAD5008D5F83 /* ViewController */,
+			);
+			path = CoinTableViewCell;
+			sourceTree = "<group>";
+		};
+		04AD76E82785DAD5008D5F83 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -321,6 +340,7 @@
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
 				04BCC74F2784BC3E0093DD73 /* NewsViewModel.swift in Sources */,
 				04BCC7512784BCA90093DD73 /* NewsGuideline.swift in Sources */,
+				04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
