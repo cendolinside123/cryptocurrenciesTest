@@ -69,11 +69,6 @@ class NewsTableViewCell: UITableViewCell {
         labelSource.translatesAutoresizingMaskIntoConstraints = false
         constraints += [NSLayoutConstraint(item: labelSource, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 10)]
         
-        //MARK: labelTitle constraints
-        labelTitle.translatesAutoresizingMaskIntoConstraints = false
-//        labelNewsBody.translatesAutoresizingMaskIntoConstraints = false
-        constraints += [NSLayoutConstraint(item: labelTitle, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)]
-        
         NSLayoutConstraint.activate(constraints)
     }
     
