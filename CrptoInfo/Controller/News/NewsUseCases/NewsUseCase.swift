@@ -28,7 +28,7 @@ extension NewsUseCase: NewsNetworkProvider {
             switch response.result {
             case .success(let data):
                 let getJSON = JSON(data)
-                let getData = getJSON["data"].arrayValue
+                let getData = getJSON["Data"].arrayValue
                 var listBerita = [News]()
                 for item in getData {
                     listBerita.append(News(json: item))
