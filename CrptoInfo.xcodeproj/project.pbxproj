@@ -28,6 +28,8 @@
 		04E0CF1E2786B84E00CEABAC /* CoinGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF1D2786B84E00CEABAC /* CoinGuideline.swift */; };
 		04E0CF202786BA2B00CEABAC /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF1F2786BA2B00CEABAC /* CoinViewModel.swift */; };
 		04E0CF232786C12500CEABAC /* ListCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF222786C12500CEABAC /* ListCoinViewController.swift */; };
+		04E0CF252787249200CEABAC /* ListCoinUIControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF242787249200CEABAC /* ListCoinUIControll.swift */; };
+		04E0CF272787258400CEABAC /* ListCoinUIGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		04E0CF1D2786B84E00CEABAC /* CoinGuideline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGuideline.swift; sourceTree = "<group>"; };
 		04E0CF1F2786BA2B00CEABAC /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
 		04E0CF222786C12500CEABAC /* ListCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinViewController.swift; sourceTree = "<group>"; };
+		04E0CF242787249200CEABAC /* ListCoinUIControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinUIControll.swift; sourceTree = "<group>"; };
+		04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinUIGuide.swift; sourceTree = "<group>"; };
 		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
 		3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.debug.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrptoInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				04E0CF222786C12500CEABAC /* ListCoinViewController.swift */,
+				04E0CF242787249200CEABAC /* ListCoinUIControll.swift */,
+				04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04E0CF232786C12500CEABAC /* ListCoinViewController.swift in Sources */,
+				04E0CF252787249200CEABAC /* ListCoinUIControll.swift in Sources */,
 				04BCC73D2784A0F70093DD73 /* Coin.swift in Sources */,
 				04AD76E627859A86008D5F83 /* NewsTableViewCell.swift in Sources */,
 				04BCC7462784AC5C0093DD73 /* NetworkResult.swift in Sources */,
@@ -389,6 +396,7 @@
 				04BCC73F2784A6660093DD73 /* News.swift in Sources */,
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
 				04E0CF19278691E200CEABAC /* CoinNetworkProvider.swift in Sources */,
+				04E0CF272787258400CEABAC /* ListCoinUIGuide.swift in Sources */,
 				04BCC74F2784BC3E0093DD73 /* NewsViewModel.swift in Sources */,
 				04BCC7512784BCA90093DD73 /* NewsGuideline.swift in Sources */,
 				04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */,
