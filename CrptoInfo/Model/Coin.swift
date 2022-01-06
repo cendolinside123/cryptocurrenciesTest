@@ -15,7 +15,7 @@ struct UsdCurency {
     var price: Double
     let lastmarket: String
     var openDay: Double
-    var change: String
+    var change: Double
     var changePercent: String
 }
 extension UsdCurency {
@@ -24,16 +24,16 @@ extension UsdCurency {
         fromsymbol = json["DISPLAY"]["USD"]["FROMSYMBOL"].stringValue
         toSymbol = json["DISPLAY"]["USD"]["TOSYMBOL"].stringValue
         market = json["RAW"]["USD"]["MARKET"].stringValue
-        price = json["RAW"]["USD"]["MARKET"].doubleValue
+        price = json["RAW"]["USD"]["PRICE"].doubleValue
         lastmarket = json["DISPLAY"]["USD"]["LASTMARKET"].stringValue
         openDay = json["RAW"]["USD"]["OPENDAY"].doubleValue
-        change = "\(price - openDay)"
-        changePercent = "\(((price - openDay)/openDay) * 100)%"
+        change = price - openDay
+        changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
     }
     
     mutating func countChange() {
-        change = "\(price - openDay)"
-        changePercent = "\(((price - openDay)/openDay) * 100)%"
+        change = price - openDay
+        changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
     }
 }
 
