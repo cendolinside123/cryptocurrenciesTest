@@ -9,31 +9,33 @@ import UIKit
 
 class CointTableViewCell: UITableViewCell {
 
-    let labelCoinCode = UILabel()
-    let labelCoinName = UILabel()
-    let labelPrice = UILabel()
-    let labelChange = UILabel()
-    let nameStackView: UIStackView = {
+    private let labelCoinCode = UILabel()
+    private let labelCoinName = UILabel()
+    private let labelPrice = UILabel()
+    private let labelChange = UILabel()
+    private let nameStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillEqually
         return stack
     }()
-    let changeStackView: UIStackView = {
+    private let changeStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillEqually
         return stack
     }()
-    let contentStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fill
         return stack
     }()
+    
+    private var uiControll: CoinCellUIGuide = CoinCellUIControll()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -105,6 +107,8 @@ class CointTableViewCell: UITableViewCell {
         labelPrice.font = UIFont.boldSystemFont(ofSize: 18)
         labelPrice.textAlignment = .right
         labelPrice.textColor = .black
+        labelPrice.numberOfLines = 1
+        labelPrice.adjustsFontSizeToFitWidth = true
         contentView.addSubview(labelPrice)
     }
     
@@ -112,6 +116,8 @@ class CointTableViewCell: UITableViewCell {
         labelChange.textAlignment = .center
         labelChange.textColor = .white
         labelChange.backgroundColor = .gray
+        labelChange.numberOfLines = 1
+        labelChange.adjustsFontSizeToFitWidth = true
         contentView.addSubview(labelChange)
     }
     private func addStackView() {
@@ -133,12 +139,11 @@ extension CointTableViewCell {
     func setValue(coin: Coin) {
         labelCoinName.text = coin.fullName
         labelCoinCode.text = coin.name
-        labelPrice.text = "\(coin.usdCurency.toSymbol)\(coin.usdCurency.price)"
-        labelChange.text = "\(String(format: "%.2f", coin.usdCurency.change))(\(coin.usdCurency.changePercent))"
-        if coin.usdCurency.change.sign == .minus {
-            labelChange.backgroundColor = .red
-        } else {
-            labelChange.backgroundColor = .green
-        }
+        labelPrice.text = uiControll.priceValidation(coin: coin)
+        
+        uiControll.lableChangeValidation(coin: coin, completion: { [weak self] txtChange, labelColor in
+            self?.labelChange.text = txtChange
+            self?.labelChange.backgroundColor = labelColor
+        })
     }
 }

@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 class ListCoinUIControll {
-    private var controller: ListCoinViewController?
+    private var controller: UIViewController?
     
-    init(controller: ListCoinViewController) {
+    init(controller: UIViewController) {
         self.controller = controller
     }
     
 }
 extension ListCoinUIControll: ListCoinUIGuide {
     func showLoading(completion: (() -> Void)?) {
-        guard let _controller = self.controller else {
+        guard let _controller = self.controller as? ListCoinViewController else {
             return
         }
         
@@ -45,7 +45,7 @@ extension ListCoinUIControll: ListCoinUIGuide {
     }
     
     func hideLoading(completion: (() -> Void)?) {
-        guard let _controller = self.controller else {
+        guard let _controller = self.controller as? ListCoinViewController else {
             return
         }
         
@@ -72,7 +72,7 @@ extension ListCoinUIControll: ListCoinUIGuide {
     }
     
     func scrollControll(scrollView: UIScrollView, completion: (() -> Void)?) {
-        guard let _controller = self.controller else {
+        guard let _controller = self.controller as? ListCoinViewController else {
             return
         }
         if scrollView.contentSize.height > _controller.view.frame.size.height && scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height {
