@@ -8,5 +8,6 @@ target 'CrptoInfo' do
   # Pods for CrptoInfo
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Starscream', '~> 4.0.0'
 
 end
