@@ -13,7 +13,7 @@ class ListCoinViewController: UIViewController {
     private let tableContent = UITableView()
     private var listCoin = [Coin]()
     private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase())
-    private var uiControll: ListCoinUIGuide?
+    private var uiControll: ListUIGuideHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()

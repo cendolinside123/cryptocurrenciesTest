@@ -29,7 +29,7 @@
 		04E0CF202786BA2B00CEABAC /* CoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF1F2786BA2B00CEABAC /* CoinViewModel.swift */; };
 		04E0CF232786C12500CEABAC /* ListCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF222786C12500CEABAC /* ListCoinViewController.swift */; };
 		04E0CF252787249200CEABAC /* ListCoinUIControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF242787249200CEABAC /* ListCoinUIControll.swift */; };
-		04E0CF272787258400CEABAC /* ListCoinUIGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */; };
+		04E0CF272787258400CEABAC /* UIGuideHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF262787258400CEABAC /* UIGuideHelper.swift */; };
 		04E0CF2927872F5A00CEABAC /* CoinCellUIControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF2827872F5A00CEABAC /* CoinCellUIControll.swift */; };
 		04E0CF2B278730B600CEABAC /* CoinCellUIGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF2A278730B600CEABAC /* CoinCellUIGuide.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +58,7 @@
 		04E0CF1F2786BA2B00CEABAC /* CoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModel.swift; sourceTree = "<group>"; };
 		04E0CF222786C12500CEABAC /* ListCoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinViewController.swift; sourceTree = "<group>"; };
 		04E0CF242787249200CEABAC /* ListCoinUIControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinUIControll.swift; sourceTree = "<group>"; };
-		04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinUIGuide.swift; sourceTree = "<group>"; };
+		04E0CF262787258400CEABAC /* UIGuideHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGuideHelper.swift; sourceTree = "<group>"; };
 		04E0CF2827872F5A00CEABAC /* CoinCellUIControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCellUIControll.swift; sourceTree = "<group>"; };
 		04E0CF2A278730B600CEABAC /* CoinCellUIGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCellUIGuide.swift; sourceTree = "<group>"; };
 		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				04BCC7452784AC5C0093DD73 /* NetworkResult.swift */,
+				04E0CF262787258400CEABAC /* UIGuideHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -251,7 +252,6 @@
 			children = (
 				04E0CF222786C12500CEABAC /* ListCoinViewController.swift */,
 				04E0CF242787249200CEABAC /* ListCoinUIControll.swift */,
-				04E0CF262787258400CEABAC /* ListCoinUIGuide.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
 				04E0CF19278691E200CEABAC /* CoinNetworkProvider.swift in Sources */,
 				04E0CF2B278730B600CEABAC /* CoinCellUIGuide.swift in Sources */,
-				04E0CF272787258400CEABAC /* ListCoinUIGuide.swift in Sources */,
+				04E0CF272787258400CEABAC /* UIGuideHelper.swift in Sources */,
 				04BCC74F2784BC3E0093DD73 /* NewsViewModel.swift in Sources */,
 				04BCC7512784BCA90093DD73 /* NewsGuideline.swift in Sources */,
 				04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */,

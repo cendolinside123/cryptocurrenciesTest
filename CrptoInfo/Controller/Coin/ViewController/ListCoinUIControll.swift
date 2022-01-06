@@ -16,7 +16,7 @@ class ListCoinUIControll {
     }
     
 }
-extension ListCoinUIControll: ListCoinUIGuide {
+extension ListCoinUIControll: ListUIGuideHelper {
     func showLoading(completion: (() -> Void)?) {
         guard let _controller = self.controller as? ListCoinViewController else {
             return
