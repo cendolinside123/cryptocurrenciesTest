@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol CoinGuideline {
+    func loadCoins(limit: Int, tsym: String, reloadTime: Int)
+    var coinResult: (([Coin]) -> Void)? { get set }
+    var fetchError: ((String) -> Void)? { get set }
+}
