@@ -9,10 +9,10 @@ import UIKit
 
 class NewsTableViewCell: UITableViewCell {
     
-    let labelSource = UILabel()
-    let labelTitle = UILabel()
-    let labelNewsBody = UILabel()
-    let contentStackView: UIStackView = {
+    private let labelSource = UILabel()
+    private let labelTitle = UILabel()
+    private let labelNewsBody = UILabel()
+    private let contentStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .fill
