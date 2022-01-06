@@ -128,3 +128,17 @@ class CointTableViewCell: UITableViewCell {
         contentView.addSubview(contentStackView)
     }
 }
+
+extension CointTableViewCell {
+    func setValue(coin: Coin) {
+        labelCoinName.text = coin.fullName
+        labelCoinCode.text = coin.name
+        labelPrice.text = "\(coin.usdCurency.toSymbol)\(coin.usdCurency.price)"
+        labelChange.text = "\(String(format: "%.2f", coin.usdCurency.change))(\(coin.usdCurency.changePercent))"
+        if coin.usdCurency.change.sign == .minus {
+            labelChange.backgroundColor = .red
+        } else {
+            labelChange.backgroundColor = .green
+        }
+    }
+}
