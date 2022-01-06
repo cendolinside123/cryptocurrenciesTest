@@ -13,6 +13,7 @@ class ListCoinViewController: UIViewController {
     private let tableContent = UITableView()
     private var listCoin = [Coin]()
     private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase())
+    private var uiControll: ListCoinUIGuide?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ListCoinViewController: UIViewController {
         setLayout()
         setConstraints()
         setupTable()
+        uiControll = ListCoinUIControll(controller: self)
         bind()
         viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
     }
@@ -85,47 +87,11 @@ class ListCoinViewController: UIViewController {
     }
     
     private func hideLoading() {
-        var constraints = view.constraints
-        
-        guard let getLoadingHeigh = constraints.firstIndex(where: { (constraint) -> Bool in
-            constraint.identifier == "loadingViewHeight"
-        }) else {
-            return
-        }
-        NSLayoutConstraint.deactivate(constraints)
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            guard let superSelf = self else {
-                return
-            }
-            
-            constraints[getLoadingHeigh] = NSLayoutConstraint(item: superSelf.loadingView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
-            constraints[getLoadingHeigh].identifier = "loadingViewHeight"
-            NSLayoutConstraint.activate(constraints)
-            superSelf.loadingSpinner.stopAnimating()
-            superSelf.view.layoutIfNeeded()
-        })
+        uiControll?.hideLoading(completion: nil)
     }
     
     private func showLoading(completion: @escaping () -> Void) {
-        var constraints = loadingView.constraints
-        
-        guard let getLoadingHeigh = constraints.firstIndex(where: { (constraint) -> Bool in
-            constraint.identifier == "loadingViewHeight"
-        }) else {
-            return
-        }
-        NSLayoutConstraint.deactivate(constraints)
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            guard let superSelf = self else {
-                return
-            }
-            
-            constraints[getLoadingHeigh] = NSLayoutConstraint(item: superSelf.loadingView, attribute: .height, relatedBy: .equal, toItem: superSelf.view, attribute: .height, multiplier: 1/9, constant: 0)
-            constraints[getLoadingHeigh].identifier = "loadingViewHeight"
-            NSLayoutConstraint.activate(constraints)
-            superSelf.loadingSpinner.startAnimating()
-            superSelf.view.layoutIfNeeded()
-        }, completion: { _ in
+        uiControll?.showLoading(completion: {
             completion()
         })
     }
@@ -155,6 +121,17 @@ class ListCoinViewController: UIViewController {
     
     
 }
+
+extension ListCoinViewController {
+    func getLoadingView() -> UIView {
+        return loadingView
+    }
+    
+    func getLoadingSpinner() -> UIActivityIndicatorView {
+        return loadingSpinner
+    }
+}
+
 extension ListCoinViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listCoin.count
@@ -180,12 +157,8 @@ extension ListCoinViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentSize.height > self.view.frame.size.height && scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height {
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentSize.height - scrollView.frame.size.height), animated: false)
-        } else if scrollView.contentOffset.y <= 0 {
-            showLoading(completion: { [weak self] in
-                self?.viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
-            })
-        }
+        uiControll?.scrollControll(scrollView: scrollView, completion: { [weak self] in
+            self?.viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
+        })
     }
 }
