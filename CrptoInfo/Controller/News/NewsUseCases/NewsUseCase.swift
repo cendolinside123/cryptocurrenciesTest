@@ -24,7 +24,7 @@ extension NewsUseCase: NewsNetworkProvider {
         
         let params: NewsGETParams = NewsGETParams(lang: "EN", categories: category)
         
-        AF.request("https://min-api.cryptocompare.com/data/v2/news/", method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
+        HttpHelper.shared.session.request("https://min-api.cryptocompare.com/data/v2/news/", method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
             switch response.result {
             case .success(let data):
                 let getJSON = JSON(data)
