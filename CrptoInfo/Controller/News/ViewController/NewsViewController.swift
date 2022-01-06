@@ -9,10 +9,13 @@ import UIKit
 
 class NewsViewController: UIViewController {
 
+    private let loadingSpinner = UIActivityIndicatorView()
+    private let loadingView = UIView()
     private let tableContent = UITableView()
     private var listNews = [News]()
     private var viewModel: NewsGuideline = NewsViewModel(useCase: NewsUseCase())
     private var category: String = ""
+    private var uiControll: ListUIGuideHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class NewsViewController: UIViewController {
         setLayout()
         setConstraints()
         setupTable()
+        uiControll = ListNewsUIControll(controller: self)
         bind()
         viewModel.loadNews(category: category, reloadTime: 3)
     }
@@ -42,6 +46,7 @@ class NewsViewController: UIViewController {
         viewModel.newsResult = { [weak self] listNews in
             self?.listNews = listNews
             self?.tableContent.reloadData()
+            self?.hideLoading()
         }
         viewModel.fetchError = { message in
             print("error: \(message)")
@@ -50,23 +55,47 @@ class NewsViewController: UIViewController {
     
     private func setLayout() {
         view.backgroundColor = .white
+        setLoadingView()
         setNewsTable()
     }
     
     private func setConstraints() {
-        let views: [String: Any] = ["tableContent": tableContent]
+        let views: [String: Any] = ["loadingView": loadingView, "tableContent": tableContent, "loadingSpinner": loadingSpinner]
         let metrix: [String: Any] = [:]
         var constraints = [NSLayoutConstraint]()
         
-        //MARK: tableContent constraints
+        //MARK: tableContent and loadingView constraints
         tableContent.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
         let hTableContent = "H:|-5-[tableContent]-5-|"
-        let vTableContent = "V:|-[tableContent]-|"
+        let vTableContentLoadingView = "V:|-[loadingView]-0-[tableContent]-|"
+        let hLoadingView = "H:|-0-[loadingView]-0-|"
         
         constraints += NSLayoutConstraint.constraints(withVisualFormat: hTableContent, options: .alignAllTop, metrics: metrix, views: views)
-        constraints += NSLayoutConstraint.constraints(withVisualFormat: vTableContent, options: .alignAllLeading, metrics: metrix, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: vTableContentLoadingView, options: .alignAllLeading, metrics: metrix, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: hLoadingView, options: .alignAllTop, metrics: metrix, views: views)
+        let loadingViewHeight = NSLayoutConstraint(item: loadingView, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1/9, constant: 0)
+        loadingViewHeight.identifier = "loadingViewHeight"
+        constraints += [loadingViewHeight]
+        
+        //MARK: loadingSpinner constraints
+        loadingSpinner.translatesAutoresizingMaskIntoConstraints = false
+        constraints += [NSLayoutConstraint(item: loadingSpinner, attribute: .centerX, relatedBy: .equal, toItem: loadingView, attribute: .centerX, multiplier: 1, constant: 0)]
+        constraints += [NSLayoutConstraint(item: loadingSpinner, attribute: .centerY, relatedBy: .equal, toItem: loadingView, attribute: .centerY, multiplier: 1, constant: 0)]
         NSLayoutConstraint.activate(constraints)
         
+    }
+    
+    private func setLoadingView() {
+        loadingSpinner.color = .gray
+        loadingView.addSubview(loadingSpinner)
+        loadingSpinner.startAnimating()
+        loadingView.backgroundColor = .white
+        view.addSubview(loadingView)
+    }
+    
+    private func hideLoading() {
+        uiControll?.hideLoading(completion: nil)
     }
     
     private func setNewsTable() {
@@ -86,6 +115,17 @@ class NewsViewController: UIViewController {
     }
 
 }
+
+extension NewsViewController {
+    func getLoadingView() -> UIView {
+        return loadingView
+    }
+    
+    func getLoadingSpinner() -> UIActivityIndicatorView {
+        return loadingSpinner
+    }
+}
+
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listNews.count
@@ -98,6 +138,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let getItem = listNews[indexPath.row]
         cell.setValue(news: getItem)
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        uiControll?.scrollControll(scrollView: scrollView, completion: nil)
     }
 }
 extension NewsViewController {
