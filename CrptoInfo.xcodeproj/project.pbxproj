@@ -25,6 +25,7 @@
 		04BCC7512784BCA90093DD73 /* NewsGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC7502784BCA90093DD73 /* NewsGuideline.swift */; };
 		04E0CF19278691E200CEABAC /* CoinNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF18278691E100CEABAC /* CoinNetworkProvider.swift */; };
 		04E0CF1B2786A3DF00CEABAC /* CoinUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF1A2786A3DF00CEABAC /* CoinUseCase.swift */; };
+		04E0CF1E2786B84E00CEABAC /* CoinGuideline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF1D2786B84E00CEABAC /* CoinGuideline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		04BCC7502784BCA90093DD73 /* NewsGuideline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsGuideline.swift; sourceTree = "<group>"; };
 		04E0CF18278691E100CEABAC /* CoinNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinNetworkProvider.swift; sourceTree = "<group>"; };
 		04E0CF1A2786A3DF00CEABAC /* CoinUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinUseCase.swift; sourceTree = "<group>"; };
+		04E0CF1D2786B84E00CEABAC /* CoinGuideline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGuideline.swift; sourceTree = "<group>"; };
 		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
 		3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.debug.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrptoInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 		04E0CF152786917200CEABAC /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				04E0CF1C2786B64400CEABAC /* ViewModel */,
 				04E0CF162786918300CEABAC /* CoinUseCases */,
 			);
 			path = Coin;
@@ -217,6 +220,14 @@
 				04E0CF1A2786A3DF00CEABAC /* CoinUseCase.swift */,
 			);
 			path = CoinUseCases;
+			sourceTree = "<group>";
+		};
+		04E0CF1C2786B64400CEABAC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04E0CF1D2786B84E00CEABAC /* CoinGuideline.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0DDBB710D18308AB773864C8 /* Pods */ = {
@@ -365,6 +376,7 @@
 				04BCC74F2784BC3E0093DD73 /* NewsViewModel.swift in Sources */,
 				04BCC7512784BCA90093DD73 /* NewsGuideline.swift in Sources */,
 				04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */,
+				04E0CF1E2786B84E00CEABAC /* CoinGuideline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
