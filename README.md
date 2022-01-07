@@ -1,3 +1,6 @@
+
+my name is Jan Sebastian Tatang and I'm a candidate for iOS Developer position
+
 ### what else I could have done with more time (with solution).
 1. change Coin model can flexible to save non-crypto curency type, because I only set it read USD type, solution: 
   * change name of struct model UsdCurencybecome more global
