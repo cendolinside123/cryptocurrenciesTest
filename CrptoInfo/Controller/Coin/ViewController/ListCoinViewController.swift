@@ -14,7 +14,8 @@ class ListCoinViewController: UIViewController {
     private var listCoin = [Coin]()
     private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase(), webSocket: CoinChangeUseCase())
     private var uiControll: ListUIGuideHelper?
-
+    private var coinChangeControl: CoinWebSocketUIGuide?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +26,7 @@ class ListCoinViewController: UIViewController {
         setConstraints()
         setupTable()
         uiControll = ListCoinUIControll(controller: self)
+        coinChangeControl = CoinWebSocketUIController(controller: self)
         bind()
         viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
     }
@@ -39,8 +41,8 @@ class ListCoinViewController: UIViewController {
         viewModel.fetchError = { message in
             print("error: \(message)")
         }
-        viewModel.webSocketResponse = { _ in
-            
+        viewModel.webSocketResponse = { [weak self] updateValue in
+            self?.coinChangeControl?.editListData(newValue: updateValue)
         }
         viewModel.webSocketError = { message in
             print("websocket error: \(message)")
@@ -139,6 +141,23 @@ extension ListCoinViewController {
     
     func getTableView() -> UITableView {
         return tableContent
+    }
+    
+    func getListCoin() -> [Coin] {
+        return listCoin
+    }
+    
+    func updatePriceSelectedData(index: Int, coin: Coin) {
+        let getIndex = IndexPath(row: index, section: 0)
+        guard let cell = tableContent.cellForRow(at: getIndex) as? CointTableViewCell else {
+            return
+        }
+        listCoin[index].usdCurency.price = coin.usdCurency.price
+        listCoin[index].usdCurency.openDay = coin.usdCurency.openDay
+        listCoin[index].usdCurency.countChange()
+        cell.setValue(coin: coin)
+        tableContent.reloadRows(at: [getIndex], with: .automatic)
+        
     }
     
 }

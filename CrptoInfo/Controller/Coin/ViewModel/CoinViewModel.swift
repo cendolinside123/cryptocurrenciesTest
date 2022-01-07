@@ -19,8 +19,8 @@ class CoinViewModel {
         self.useCase = useCase
         self.webSocket = webSocket
         
-        self.webSocket?.coinResult = { _ in
-            
+        self.webSocket?.coinResult = { [weak self] getCoinChange in
+            self?.webSocketResponse?(getCoinChange)
         }
         
         self.webSocket?.fetchError = { [weak self] errorMessage in
