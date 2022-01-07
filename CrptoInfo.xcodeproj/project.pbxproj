@@ -10,6 +10,7 @@
 		03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */; };
 		04989A2E27854F17008E480C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04989A2D27854F17008E480C /* NewsViewController.swift */; };
 		04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672AD27882758008928E7 /* CrptoInfoTests.swift */; };
+		04A672B527883153008928E7 /* MockingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672B427883153008928E7 /* MockingData.swift */; };
 		04AD76E627859A86008D5F83 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */; };
 		04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		04989A2D27854F17008E480C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		04A672AB27882757008928E7 /* CrptoInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrptoInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A672AD27882758008928E7 /* CrptoInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrptoInfoTests.swift; sourceTree = "<group>"; };
+		04A672B427883153008928E7 /* MockingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingData.swift; sourceTree = "<group>"; };
 		04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointTableViewCell.swift; sourceTree = "<group>"; };
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				04A672AD27882758008928E7 /* CrptoInfoTests.swift */,
+				04A672B427883153008928E7 /* MockingData.swift */,
 			);
 			path = CrptoInfoTests;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A672B527883153008928E7 /* MockingData.swift in Sources */,
 				04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
