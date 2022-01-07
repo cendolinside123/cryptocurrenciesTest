@@ -12,7 +12,7 @@ class ListCoinViewController: UIViewController {
     private let loadingView = UIView()
     private let tableContent = UITableView()
     private var listCoin = [Coin]()
-    private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase())
+    private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase(), webSocket: CoinChangeUseCase())
     private var uiControll: ListUIGuideHelper?
 
     override func viewDidLoad() {
@@ -34,10 +34,16 @@ class ListCoinViewController: UIViewController {
             self?.listCoin = listCoins
             self?.tableContent.reloadData()
             self?.hideLoading()
-            
+            self?.viewModel.coinsWebSocket(coins: listCoins, toCurency: "USD", retryTime: 3)
         }
         viewModel.fetchError = { message in
             print("error: \(message)")
+        }
+        viewModel.webSocketResponse = { _ in
+            
+        }
+        viewModel.webSocketError = { message in
+            print("websocket error: \(message)")
         }
     }
     
@@ -130,6 +136,11 @@ extension ListCoinViewController {
     func getLoadingSpinner() -> UIActivityIndicatorView {
         return loadingSpinner
     }
+    
+    func getTableView() -> UITableView {
+        return tableContent
+    }
+    
 }
 
 extension ListCoinViewController: UITableViewDelegate, UITableViewDataSource {
