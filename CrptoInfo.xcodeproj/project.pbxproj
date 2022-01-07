@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03342B632D32943B629A061B /* Pods_CrptoInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */; };
 		04989A2E27854F17008E480C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04989A2D27854F17008E480C /* NewsViewController.swift */; };
+		04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672AD27882758008928E7 /* CrptoInfoTests.swift */; };
 		04AD76E627859A86008D5F83 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */; };
 		04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
@@ -40,8 +41,20 @@
 		04E0CF3727875C1E00CEABAC /* CoinChangeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF3627875C1E00CEABAC /* CoinChangeUseCase.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		04A672AF27882758008928E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04BCC71A278493900093DD73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04BCC721278493900093DD73;
+			remoteInfo = CrptoInfo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		04989A2D27854F17008E480C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		04A672AB27882757008928E7 /* CrptoInfoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrptoInfoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A672AD27882758008928E7 /* CrptoInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrptoInfoTests.swift; sourceTree = "<group>"; };
 		04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointTableViewCell.swift; sourceTree = "<group>"; };
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +92,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04A672A827882757008928E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04BCC71F278493900093DD73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,6 +117,14 @@
 				04E0CF2C2787438F00CEABAC /* ListNewsUIControll.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04A672AC27882758008928E7 /* CrptoInfoTests */ = {
+			isa = PBXGroup;
+			children = (
+				04A672AD27882758008928E7 /* CrptoInfoTests.swift */,
+			);
+			path = CrptoInfoTests;
 			sourceTree = "<group>";
 		};
 		04AD76E2278599D8008D5F83 /* CustomView */ = {
@@ -146,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				04BCC724278493900093DD73 /* CrptoInfo */,
+				04A672AC27882758008928E7 /* CrptoInfoTests */,
 				04BCC723278493900093DD73 /* Products */,
 				0DDBB710D18308AB773864C8 /* Pods */,
 				75951BB5922066E210ABE92E /* Frameworks */,
@@ -156,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				04BCC722278493900093DD73 /* CrptoInfo.app */,
+				04A672AB27882757008928E7 /* CrptoInfoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,6 +332,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04A672AA27882757008928E7 /* CrptoInfoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A672B327882758008928E7 /* Build configuration list for PBXNativeTarget "CrptoInfoTests" */;
+			buildPhases = (
+				04A672A727882757008928E7 /* Sources */,
+				04A672A827882757008928E7 /* Frameworks */,
+				04A672A927882757008928E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04A672B027882758008928E7 /* PBXTargetDependency */,
+			);
+			name = CrptoInfoTests;
+			productName = CrptoInfoTests;
+			productReference = 04A672AB27882757008928E7 /* CrptoInfoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		04BCC721278493900093DD73 /* CrptoInfo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BCC736278493920093DD73 /* Build configuration list for PBXNativeTarget "CrptoInfo" */;
@@ -331,6 +379,10 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					04A672AA27882757008928E7 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 04BCC721278493900093DD73;
+					};
 					04BCC721278493900093DD73 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -350,11 +402,19 @@
 			projectRoot = "";
 			targets = (
 				04BCC721278493900093DD73 /* CrptoInfo */,
+				04A672AA27882757008928E7 /* CrptoInfoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04A672A927882757008928E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04BCC720278493900093DD73 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +470,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04A672A727882757008928E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04BCC71E278493900093DD73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +514,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		04A672B027882758008928E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04BCC721278493900093DD73 /* CrptoInfo */;
+			targetProxy = 04A672AF27882758008928E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		04BCC72B278493900093DD73 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -466,6 +542,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		04A672B127882758008928E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H9Y26B6GZB;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JanTest.CrptoInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrptoInfo.app/CrptoInfo";
+			};
+			name = Debug;
+		};
+		04A672B227882758008928E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H9Y26B6GZB;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JanTest.CrptoInfoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrptoInfo.app/CrptoInfo";
+			};
+			name = Release;
+		};
 		04BCC734278493920093DD73 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -647,6 +769,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04A672B327882758008928E7 /* Build configuration list for PBXNativeTarget "CrptoInfoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A672B127882758008928E7 /* Debug */,
+				04A672B227882758008928E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04BCC71D278493900093DD73 /* Build configuration list for PBXProject "CrptoInfo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
