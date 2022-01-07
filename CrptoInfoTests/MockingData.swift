@@ -36,6 +36,23 @@ struct MockData {
         
         return listNews
     }
+    
+    static func generateCoinList() -> [Coin] {
+        var listCoin: [Coin]
+        
+        listCoin = [Coin(id: "1182", name: "BTC", fullName: "Bitcoin", _internal: "BTC", usdCurency: UsdCurency(fromsymbol: "BTC", toSymbol: "USD", market: "CCCAGG", price: 42416.88, lastmarket: "Bitfinex", openDay: 43094.25))]
+        
+        return listCoin
+    }
+    
+    static func generateEmptyCoinList() -> [Coin] {
+        var listCoin: [Coin]
+        
+        listCoin = []
+        
+        return listCoin
+    }
+    
 }
 
 struct SuccessNewsUseCase {
@@ -59,3 +76,25 @@ extension FailedNewsUseCase: NewsNetworkProvider {
     
 }
 
+struct SuccessCoinListUseCase {
+    
+}
+extension SuccessCoinListUseCase: CoinNetworkProvider {
+    func fetchCoin(limit: Int, tsym: String, completion: @escaping (NetworkResult<[Coin]>) -> Void) {
+        let data = MockData.generateCoinList()
+        completion(.success(data))
+    }
+    
+    
+}
+
+struct FailedCoinListUseCase {
+    
+}
+extension FailedCoinListUseCase: CoinNetworkProvider {
+    func fetchCoin(limit: Int, tsym: String, completion: @escaping (NetworkResult<[Coin]>) -> Void) {
+        completion(.failed(MockError.SampleError))
+    }
+    
+    
+}
