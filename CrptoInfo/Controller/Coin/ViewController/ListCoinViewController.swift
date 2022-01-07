@@ -38,8 +38,9 @@ class ListCoinViewController: UIViewController {
             self?.hideLoading()
             self?.viewModel.coinsWebSocket(coins: listCoins, toCurency: "USD", retryTime: 3)
         }
-        viewModel.fetchError = { message in
+        viewModel.fetchError = { [weak self] message in
             print("error: \(message)")
+            self?.hideLoading()
         }
         viewModel.webSocketResponse = { [weak self] updateValue in
             self?.coinChangeControl?.editListData(newValue: updateValue)

@@ -48,8 +48,9 @@ class NewsViewController: UIViewController {
             self?.tableContent.reloadData()
             self?.hideLoading()
         }
-        viewModel.fetchError = { message in
+        viewModel.fetchError = { [weak self] message in
             print("error: \(message)")
+            self?.hideLoading()
         }
     }
     
