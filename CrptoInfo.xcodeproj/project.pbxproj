@@ -12,6 +12,7 @@
 		04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672AD27882758008928E7 /* CrptoInfoTests.swift */; };
 		04A672B527883153008928E7 /* MockingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672B427883153008928E7 /* MockingData.swift */; };
 		04A672B727884005008928E7 /* ListNewsUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672B627884005008928E7 /* ListNewsUT.swift */; };
+		04A672B927884D45008928E7 /* ListCoinUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A672B827884D45008928E7 /* ListCoinUT.swift */; };
 		04AD76E627859A86008D5F83 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */; };
 		04AD76EA2785DAF5008D5F83 /* CointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */; };
 		04BCC726278493900093DD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCC725278493900093DD73 /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		04A672AD27882758008928E7 /* CrptoInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrptoInfoTests.swift; sourceTree = "<group>"; };
 		04A672B427883153008928E7 /* MockingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingData.swift; sourceTree = "<group>"; };
 		04A672B627884005008928E7 /* ListNewsUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNewsUT.swift; sourceTree = "<group>"; };
+		04A672B827884D45008928E7 /* ListCoinUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoinUT.swift; sourceTree = "<group>"; };
 		04AD76E527859A86008D5F83 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		04AD76E92785DAF5008D5F83 /* CointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CointTableViewCell.swift; sourceTree = "<group>"; };
 		04BCC722278493900093DD73 /* CrptoInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrptoInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				04A672AD27882758008928E7 /* CrptoInfoTests.swift */,
 				04A672B427883153008928E7 /* MockingData.swift */,
 				04A672B627884005008928E7 /* ListNewsUT.swift */,
+				04A672B827884D45008928E7 /* ListCoinUT.swift */,
 			);
 			path = CrptoInfoTests;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A672B527883153008928E7 /* MockingData.swift in Sources */,
+				04A672B927884D45008928E7 /* ListCoinUT.swift in Sources */,
 				04A672B727884005008928E7 /* ListNewsUT.swift in Sources */,
 				04A672AE27882758008928E7 /* CrptoInfoTests.swift in Sources */,
 			);
