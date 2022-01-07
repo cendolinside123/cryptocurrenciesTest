@@ -35,6 +35,17 @@ extension UsdCurency {
         change = price - openDay
         changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
     }
+    
+    init(fromsymbol: String, toSymbol: String, market: String, price: Double, lastmarket: String, openDay: Double) {
+        self.fromsymbol = fromsymbol
+        self.toSymbol = toSymbol
+        self.market = market
+        self.price = price
+        self.lastmarket = lastmarket
+        self.openDay = openDay
+        change = price - openDay
+        changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
+    }
 }
 
 struct Coin {
@@ -42,7 +53,7 @@ struct Coin {
     let name: String
     let fullName: String
     let _internal: String
-    let usdCurency: UsdCurency
+    var usdCurency: UsdCurency
 }
 extension Coin {
     
