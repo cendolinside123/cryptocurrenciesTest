@@ -51,6 +51,7 @@ class NewsViewController: UIViewController {
         viewModel.fetchError = { [weak self] message in
             print("error: \(message)")
             self?.hideLoading()
+            self?.fetchErrorAlert(message: message)
         }
     }
     
@@ -113,6 +114,12 @@ class NewsViewController: UIViewController {
         tableContent.estimatedRowHeight = 250
         tableContent.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableContent.tableFooterView = UIView()
+    }
+    
+    private func fetchErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: "error fething data (cause: \(message), try again later", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }

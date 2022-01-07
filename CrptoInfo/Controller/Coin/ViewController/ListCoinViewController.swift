@@ -41,12 +41,14 @@ class ListCoinViewController: UIViewController {
         viewModel.fetchError = { [weak self] message in
             print("error: \(message)")
             self?.hideLoading()
+            self?.fetchErrorAlert(message: message)
         }
         viewModel.webSocketResponse = { [weak self] updateValue in
             self?.coinChangeControl?.editListData(newValue: updateValue)
         }
-        viewModel.webSocketError = { message in
+        viewModel.webSocketError = { [weak self] message in
             print("websocket error: \(message)")
+            self?.fetchErrorAlert(message: message)
         }
     }
     
@@ -127,7 +129,17 @@ class ListCoinViewController: UIViewController {
         tableContent.tableFooterView = UIView()
     }
 
+    private func fetchErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: "error fething data (cause: \(message)), try again later", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
+    private func webSocketError(message: String) {
+        let alert = UIAlertController(title: "Error", message: "web socket error (cause: \(message)) data won't update automatic, try again later", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 
