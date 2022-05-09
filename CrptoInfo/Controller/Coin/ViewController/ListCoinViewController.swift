@@ -49,6 +49,10 @@ class ListCoinViewController: UIViewController {
         viewModel.webSocketError = { [weak self] message in
             print("websocket error: \(message)")
             self?.fetchErrorAlert(message: message)
+            self?.showLoading {
+                self?.viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
+            }
+            
         }
     }
     
