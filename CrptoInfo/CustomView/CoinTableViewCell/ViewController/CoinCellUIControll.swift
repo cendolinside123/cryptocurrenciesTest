@@ -15,7 +15,7 @@ extension CoinCellUIControll: CoinCellUIGuide {
         if coin.usdCurency.toSymbol == "" || coin.usdCurency.toSymbol == " " {
             return "-"
         } else {
-            return "\(coin.usdCurency.toSymbol)\(coin.usdCurency.price)"
+            return "\(coin.usdCurency.toSymbol)\(coin.usdCurency.price.avoidNotation)"
         }
     }
     

@@ -42,6 +42,7 @@
 		04E0CF2F278748C000CEABAC /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF2E278748C000CEABAC /* HTTPHelper.swift */; };
 		04E0CF352787597E00CEABAC /* CoinChangeNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF342787597E00CEABAC /* CoinChangeNetworkProvider.swift */; };
 		04E0CF3727875C1E00CEABAC /* CoinChangeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0CF3627875C1E00CEABAC /* CoinChangeUseCase.swift */; };
+		72694AE5282950F700A22702 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72694AE4282950F700A22702 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		04E0CF3627875C1E00CEABAC /* CoinChangeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChangeUseCase.swift; sourceTree = "<group>"; };
 		1E70A554D6C4D4D650C43552 /* Pods-CrptoInfo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.release.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.release.xcconfig"; sourceTree = "<group>"; };
 		3E28E9A5982211A364A74363 /* Pods-CrptoInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrptoInfo.debug.xcconfig"; path = "Target Support Files/Pods-CrptoInfo/Pods-CrptoInfo.debug.xcconfig"; sourceTree = "<group>"; };
+		72694AE4282950F700A22702 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		BCF80DD379999D08D9975071 /* Pods_CrptoInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrptoInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -240,6 +242,7 @@
 				04BCC7452784AC5C0093DD73 /* NetworkResult.swift */,
 				04E0CF262787258400CEABAC /* UIGuideHelper.swift */,
 				04E0CF2E278748C000CEABAC /* HTTPHelper.swift */,
+				72694AE4282950F700A22702 /* Double+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				04BCC73F2784A6660093DD73 /* News.swift in Sources */,
 				04D529752787FE9F00C97D65 /* CoinWebSocketUIGuide.swift in Sources */,
 				04BCC726278493900093DD73 /* AppDelegate.swift in Sources */,
+				72694AE5282950F700A22702 /* Double+Extension.swift in Sources */,
 				04E0CF2F278748C000CEABAC /* HTTPHelper.swift in Sources */,
 				04E0CF19278691E200CEABAC /* CoinNetworkProvider.swift in Sources */,
 				04E0CF2D2787438F00CEABAC /* ListNewsUIControll.swift in Sources */,
