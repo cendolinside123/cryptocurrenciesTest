@@ -16,3 +16,8 @@ protocol CoinGuideline {
     var webSocketError: ((String) -> Void)? { get set }
     var webSocketResponse: (([String : Any]) -> Void)? { get set }
 }
+
+struct CointUseCase {
+    let cointDataSource: CoinNetworkProvider
+    let coinDataRealtime: CoinChangeNetworkProvider?
+}

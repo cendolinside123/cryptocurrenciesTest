@@ -12,7 +12,7 @@ class ListCoinViewController: UIViewController {
     private let loadingView = UIView()
     private let tableContent = UITableView()
     private var listCoin = [Coin]()
-    private var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase(), webSocket: CoinChangeUseCase())
+    private var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: CoinUseCase(), coinDataRealtime: CoinChangeUseCase()))
     private var uiControll: ListUIGuideHelper?
     private var coinChangeControl: CoinWebSocketUIGuide?
     

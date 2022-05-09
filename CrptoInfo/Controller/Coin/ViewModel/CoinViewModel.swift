@@ -15,9 +15,10 @@ class CoinViewModel {
     var webSocketError: ((String) -> Void)?
     var webSocketResponse: (([String : Any]) -> Void)?
     
-    init(useCase: CoinNetworkProvider, webSocket: CoinChangeNetworkProvider) {
-        self.useCase = useCase
-        self.webSocket = webSocket
+    
+    init(useCase: CointUseCase) {
+        self.useCase = useCase.cointDataSource
+        self.webSocket = useCase.coinDataRealtime
         
         self.webSocket?.coinResult = { [weak self] getCoinChange in
             self?.webSocketResponse?(getCoinChange)
