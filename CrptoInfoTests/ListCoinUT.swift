@@ -11,7 +11,7 @@ import XCTest
 class ListCoinUT: XCTestCase {
 
     func testSucessLoad_offlineTest() {
-        var viewModel: CoinGuideline = CoinViewModel(useCase: SuccessCoinListUseCase(), webSocket: CoinChangeUseCase())
+        var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: CoinUseCase(), coinDataRealtime: nil))
         let expectedResult = MockData.generateCoinList()
         let expect = expectation(description: "Should return coin data")
         
@@ -41,7 +41,7 @@ class ListCoinUT: XCTestCase {
     }
     
     func testFailedLoad_offlineTest() {
-        var viewModel: CoinGuideline = CoinViewModel(useCase: FailedCoinListUseCase(), webSocket: CoinChangeUseCase())
+        var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: CoinUseCase(), coinDataRealtime: nil))
         let expect = expectation(description: "Should failed load")
         
         viewModel.fetchError = { errorMessage in
@@ -53,7 +53,7 @@ class ListCoinUT: XCTestCase {
     }
     
     func testSucessLoad_onlineTest() {
-        var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase(), webSocket: CoinChangeUseCase())
+        var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: CoinUseCase(), coinDataRealtime: nil))
         let expect = expectation(description: "Should return coin data")
         
         viewModel.coinResult = { listCoin in
@@ -65,7 +65,7 @@ class ListCoinUT: XCTestCase {
     }
     
     func testFailedLoad_onlineTest() {
-        var viewModel: CoinGuideline = CoinViewModel(useCase: CoinUseCase(), webSocket: CoinChangeUseCase())
+        var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: CoinUseCase(), coinDataRealtime: nil))
         let expect = expectation(description: "Should get empty data cause difference currency")
         
         viewModel.fetchError = { errorMessage in
