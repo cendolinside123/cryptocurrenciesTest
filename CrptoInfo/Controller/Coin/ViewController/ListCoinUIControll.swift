@@ -10,6 +10,7 @@ import UIKit
 
 class ListCoinUIControll {
     private weak var controller: UIViewController?
+    private var isScroll: Bool = false
     
     init(controller: UIViewController) {
         self.controller = controller
@@ -78,9 +79,25 @@ extension ListCoinUIControll: ListUIGuideHelper {
         if scrollView.contentSize.height > _controller.view.frame.size.height && scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height {
             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentSize.height - scrollView.frame.size.height), animated: false)
         } else if scrollView.contentOffset.y <= 0 {
-            showLoading(completion: {
-                completion?()
-            })
+            if isScroll == false {
+                print("update coin")
+                showLoading(completion: {
+                    completion?()
+                })
+            } else {
+                isScroll = false
+                
+                print("don't update coin")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    print("bounce is enable again")
+                    _controller.getTableView().bounces = true
+                })
+                
+            }
+        } else {
+            isScroll = true
+            _controller.getTableView().bounces = scrollView.contentOffset.y > 100
         }
     }
     
