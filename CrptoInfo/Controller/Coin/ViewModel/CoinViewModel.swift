@@ -116,10 +116,10 @@ extension CoinViewModel: CoinGuideline {
                         var newData: [Coin] = []
                         for getItemList1 in superSelf.listCoin {
                             for index in 0...(invalidItems.count - 1) {
-                                if getItemList1.name == tempListCoin[index].name &&
-                                    getItemList1.id == superSelf.listCoin[index].id &&
-                                    getItemList1.fullName == superSelf.listCoin[index].fullName &&
-                                    getItemList1._internal == superSelf.listCoin[index]._internal
+                                if getItemList1.name == invalidItems[index].name &&
+                                    getItemList1.id == invalidItems[index].id &&
+                                    getItemList1.fullName == invalidItems[index].fullName &&
+                                    getItemList1._internal == invalidItems[index]._internal
                                 {
                                     break
                                 }
