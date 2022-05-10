@@ -47,6 +47,16 @@ extension Curency {
         changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
     }
 }
+extension Curency: Equatable {
+    static func == (lhs: Curency, rhs: Curency) -> Bool {
+        return lhs.fromsymbol == rhs.fromsymbol &&
+        lhs.toSymbol == rhs.toSymbol &&
+        lhs.market == rhs.market &&
+        lhs.price == rhs.price &&
+        lhs.lastmarket == rhs.lastmarket &&
+        lhs.openDay == rhs.openDay
+    }
+}
 
 struct Coin {
     let id: String
@@ -64,4 +74,15 @@ extension Coin {
         _internal = json["CoinInfo"]["Internal"].stringValue
         curency = Curency(json: json, curencyType: curencyType)
     }
+}
+extension Coin: Equatable {
+    static func == (lhs: Coin, rhs: Coin) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.fullName == rhs.fullName &&
+        lhs._internal == rhs._internal &&
+        lhs.curency == rhs.curency
+    }
+    
+    
 }
