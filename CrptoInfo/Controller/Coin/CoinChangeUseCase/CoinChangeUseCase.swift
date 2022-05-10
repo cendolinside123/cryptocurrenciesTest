@@ -9,7 +9,7 @@ import Foundation
 import Starscream
 
 class CoinChangeUseCase {
-    private let key: String = "f0654a84c00ba723c9aaaaf31e968dd8c48e0bd716ba38080e37a9e0316d2966"
+//    private let key: String = "f0654a84c00ba723c9aaaaf31e968dd8c48e0bd716ba38080e37a9e0316d2966"
     private let socket: WebSocket?
     
     var coinResult: (([String: Any]) -> Void)?
@@ -21,7 +21,7 @@ class CoinChangeUseCase {
     private var jsonData: Data?
     
     init() {
-        var request = URLRequest(url: URL(string: "wss://streamer.cryptocompare.com/v2?api_key=\(key)")!)
+        var request = URLRequest(url: URL(string: Constants.URL.baseURLSocket)!)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         
