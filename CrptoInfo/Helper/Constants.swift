@@ -18,3 +18,7 @@ struct Constants {
         }
     }
 }
+
+enum CurrencyName: String {
+    case USD = "USD"
+}

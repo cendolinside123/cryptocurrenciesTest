@@ -34,8 +34,8 @@ extension CoinChangeUseCase: CoinChangeNetworkProvider {
             socket?.delegate = self
             
             
-            listSubs = coins.filter({ $0.usdCurency.toSymbol != ""}).map({ item -> String in
-                return "2~\(item.usdCurency.lastmarket)~\(item.name)~\(toCurency)"
+            listSubs = coins.filter({ $0.curency.toSymbol != ""}).map({ item -> String in
+                return "2~\(item.curency.lastmarket)~\(item.name)~\(toCurency)"
             })
             
             let props: [String: Any] = ["action": "SubAdd", "subs": listSubs]
@@ -57,6 +57,7 @@ extension CoinChangeUseCase: CoinChangeNetworkProvider {
     
     func disconect() {
         socket?.disconnect()
+        isConected = false
     }
     
     
@@ -72,6 +73,7 @@ extension CoinChangeUseCase: WebSocketDelegate {
             isConected = true
         case .disconnected(let reason, let code):
             print("websocket is disconnected: \(reason) with code: \(code) ")
+            isConected = false
         case .text(let textValue):
 //            print("text result: \(textValue)")
             

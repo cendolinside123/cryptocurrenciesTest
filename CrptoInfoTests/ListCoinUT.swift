@@ -23,14 +23,14 @@ class ListCoinUT: XCTestCase {
                 XCTAssertEqual(responseItem.name, expectedResult[indexLoop].name)
                 XCTAssertEqual(responseItem.fullName, expectedResult[indexLoop].fullName)
                 XCTAssertEqual(responseItem._internal, expectedResult[indexLoop]._internal)
-                XCTAssertEqual(responseItem.usdCurency.fromsymbol, expectedResult[indexLoop].usdCurency.fromsymbol)
-                XCTAssertEqual(responseItem.usdCurency.toSymbol, expectedResult[indexLoop].usdCurency.toSymbol)
-                XCTAssertEqual(responseItem.usdCurency.openDay, expectedResult[indexLoop].usdCurency.openDay)
-                XCTAssertEqual(responseItem.usdCurency.price, expectedResult[indexLoop].usdCurency.price)
-                XCTAssertEqual(responseItem.usdCurency.change, expectedResult[indexLoop].usdCurency.change)
-                XCTAssertEqual(responseItem.usdCurency.changePercent, expectedResult[indexLoop].usdCurency.changePercent)
-                XCTAssertEqual(responseItem.usdCurency.market, expectedResult[indexLoop].usdCurency.market)
-                XCTAssertEqual(responseItem.usdCurency.lastmarket, expectedResult[indexLoop].usdCurency.lastmarket)
+                XCTAssertEqual(responseItem.curency.fromsymbol, expectedResult[indexLoop].curency.fromsymbol)
+                XCTAssertEqual(responseItem.curency.toSymbol, expectedResult[indexLoop].curency.toSymbol)
+                XCTAssertEqual(responseItem.curency.openDay, expectedResult[indexLoop].curency.openDay)
+                XCTAssertEqual(responseItem.curency.price, expectedResult[indexLoop].curency.price)
+                XCTAssertEqual(responseItem.curency.change, expectedResult[indexLoop].curency.change)
+                XCTAssertEqual(responseItem.curency.changePercent, expectedResult[indexLoop].curency.changePercent)
+                XCTAssertEqual(responseItem.curency.market, expectedResult[indexLoop].curency.market)
+                XCTAssertEqual(responseItem.curency.lastmarket, expectedResult[indexLoop].curency.lastmarket)
                 
                 indexLoop = indexLoop + 1
             }

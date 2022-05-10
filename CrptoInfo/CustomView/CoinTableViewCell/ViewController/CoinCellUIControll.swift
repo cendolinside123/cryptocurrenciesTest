@@ -12,24 +12,24 @@ struct CoinCellUIControll {
 }
 extension CoinCellUIControll: CoinCellUIGuide {
     func priceValidation(coin: Coin) -> String {
-        if coin.usdCurency.toSymbol == "" || coin.usdCurency.toSymbol == " " {
+        if coin.curency.toSymbol == "" || coin.curency.toSymbol == " " {
             return "-"
         } else {
-            return "\(coin.usdCurency.toSymbol)\(coin.usdCurency.price.avoidNotation)"
+            return "\(coin.curency.toSymbol)\(coin.curency.price.avoidNotation)"
         }
     }
     
     func lableChangeValidation(coin: Coin, completion: (String, UIColor) -> Void) {
         
-        if coin.usdCurency.toSymbol == "" || coin.usdCurency.toSymbol == " " {
+        if coin.curency.toSymbol == "" || coin.curency.toSymbol == " " {
             completion("-(-)",.gray)
             return
         }
         
-        if coin.usdCurency.change.sign == .minus {
-            completion("\(String(format: "%.2f", coin.usdCurency.change))(\(coin.usdCurency.changePercent))",.red)
+        if coin.curency.change.sign == .minus {
+            completion("\(String(format: "%.2f", coin.curency.change))(\(coin.curency.changePercent))",.red)
         } else {
-            completion("+\(String(format: "%.2f", coin.usdCurency.change))(\(coin.usdCurency.changePercent))",.green)
+            completion("+\(String(format: "%.2f", coin.curency.change))(\(coin.curency.changePercent))",.green)
         }
     }
     

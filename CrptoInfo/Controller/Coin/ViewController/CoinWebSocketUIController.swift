@@ -34,13 +34,13 @@ extension CoinWebSocketUIController: CoinWebSocketUIGuide {
         }
         let selectedCoin = _controller.getListCoin()[getIndex]
         if let price = newValue["PRICE"] as? Double {
-            var usdValue: UsdCurency
+            var usdValue: Curency
             if let openDay = newValue["OPENDAY"] as? Double {
-                usdValue = UsdCurency(fromsymbol: selectedCoin.usdCurency.fromsymbol, toSymbol: selectedCoin.usdCurency.toSymbol, market: selectedCoin.usdCurency.market, price: price, lastmarket: selectedCoin.usdCurency.lastmarket, openDay: openDay)
+                usdValue = Curency(fromsymbol: selectedCoin.curency.fromsymbol, toSymbol: selectedCoin.curency.toSymbol, market: selectedCoin.curency.market, price: price, lastmarket: selectedCoin.curency.lastmarket, openDay: openDay)
             } else {
-                usdValue = UsdCurency(fromsymbol: selectedCoin.usdCurency.fromsymbol, toSymbol: selectedCoin.usdCurency.toSymbol, market: selectedCoin.usdCurency.market, price: price, lastmarket: selectedCoin.usdCurency.lastmarket, openDay: selectedCoin.usdCurency.openDay)
+                usdValue = Curency(fromsymbol: selectedCoin.curency.fromsymbol, toSymbol: selectedCoin.curency.toSymbol, market: selectedCoin.curency.market, price: price, lastmarket: selectedCoin.curency.lastmarket, openDay: selectedCoin.curency.openDay)
             }
-            let getCoin = Coin(id: selectedCoin.id, name: selectedCoin.name, fullName: selectedCoin.fullName, _internal: selectedCoin._internal, usdCurency: usdValue)
+            let getCoin = Coin(id: selectedCoin.id, name: selectedCoin.name, fullName: selectedCoin.fullName, _internal: selectedCoin._internal, curency: usdValue)
             _controller.updatePriceSelectedData(index: getIndex, coin: getCoin)
             
             

@@ -40,7 +40,7 @@ struct MockData {
     static func generateCoinList() -> [Coin] {
         var listCoin: [Coin]
         
-        listCoin = [Coin(id: "1182", name: "BTC", fullName: "Bitcoin", _internal: "BTC", usdCurency: UsdCurency(fromsymbol: "BTC", toSymbol: "USD", market: "CCCAGG", price: 42416.88, lastmarket: "Bitfinex", openDay: 43094.25))]
+        listCoin = [Coin(id: "1182", name: "BTC", fullName: "Bitcoin", _internal: "BTC", curency: Curency(fromsymbol: "BTC", toSymbol: "USD", market: "CCCAGG", price: 42416.88, lastmarket: "Bitfinex", openDay: 43094.25))]
         
         return listCoin
     }

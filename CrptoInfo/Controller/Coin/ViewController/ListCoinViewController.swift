@@ -50,7 +50,7 @@ class ListCoinViewController: UIViewController {
             print("websocket error: \(message)")
             self?.fetchErrorAlert(message: message)
             self?.showLoading {
-                self?.viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
+                self?.viewModel.loadCoins(limit: 50, tsym: CurrencyName.USD.rawValue, reloadTime: 3)
             }
             
         }
@@ -169,9 +169,9 @@ extension ListCoinViewController {
         guard let cell = tableContent.cellForRow(at: getIndex) as? CointTableViewCell else {
             return
         }
-        listCoin[index].usdCurency.price = coin.usdCurency.price
-        listCoin[index].usdCurency.openDay = coin.usdCurency.openDay
-        listCoin[index].usdCurency.countChange()
+        listCoin[index].curency.price = coin.curency.price
+        listCoin[index].curency.openDay = coin.curency.openDay
+        listCoin[index].curency.countChange()
         cell.setValue(coin: coin)
         tableContent.reloadRows(at: [getIndex], with: .automatic)
         

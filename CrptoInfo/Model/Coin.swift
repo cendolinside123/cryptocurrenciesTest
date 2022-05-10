@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct UsdCurency {
+struct Curency {
     let fromsymbol: String
     let toSymbol: String
     let market: String
@@ -18,15 +18,15 @@ struct UsdCurency {
     var change: Double
     var changePercent: String
 }
-extension UsdCurency {
+extension Curency {
     
-    init(json: JSON) {
-        fromsymbol = json["DISPLAY"]["USD"]["FROMSYMBOL"].stringValue
-        toSymbol = json["DISPLAY"]["USD"]["TOSYMBOL"].stringValue
-        market = json["RAW"]["USD"]["MARKET"].stringValue
-        price = json["RAW"]["USD"]["PRICE"].doubleValue
-        lastmarket = json["DISPLAY"]["USD"]["LASTMARKET"].stringValue
-        openDay = json["RAW"]["USD"]["OPENDAY"].doubleValue
+    init(json: JSON, curencyType: CurrencyName = .USD) {
+        fromsymbol = json["DISPLAY"][curencyType.rawValue]["FROMSYMBOL"].stringValue
+        toSymbol = json["DISPLAY"][curencyType.rawValue]["TOSYMBOL"].stringValue
+        market = json["RAW"][curencyType.rawValue]["MARKET"].stringValue
+        price = json["RAW"][curencyType.rawValue]["PRICE"].doubleValue
+        lastmarket = json["DISPLAY"][curencyType.rawValue]["LASTMARKET"].stringValue
+        openDay = json["RAW"][curencyType.rawValue]["OPENDAY"].doubleValue
         change = price - openDay
         changePercent = "\(String(format: "%.2f", (((price - openDay)/openDay) * 100)))%"
     }
@@ -53,15 +53,15 @@ struct Coin {
     let name: String
     let fullName: String
     let _internal: String
-    var usdCurency: UsdCurency
+    var curency: Curency
 }
 extension Coin {
     
-    init(json: JSON) {
+    init(json: JSON, curencyType: CurrencyName = .USD) {
         id = json["CoinInfo"]["Id"].stringValue
         name = json["CoinInfo"]["Name"].stringValue
         fullName = json["CoinInfo"]["FullName"].stringValue
         _internal = json["CoinInfo"]["Internal"].stringValue
-        usdCurency = UsdCurency(json: json)
+        curency = Curency(json: json, curencyType: curencyType)
     }
 }
