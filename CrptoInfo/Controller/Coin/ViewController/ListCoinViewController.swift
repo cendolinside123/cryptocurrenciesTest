@@ -33,18 +33,27 @@ class ListCoinViewController: UIViewController {
     
     private func bind() {
         viewModel.coinResult = { [weak self] listCoins in
-            self?.listCoin = listCoins
-            self?.tableContent.reloadData()
-            self?.hideLoading()
-            self?.viewModel.coinsWebSocket(coins: listCoins, toCurency: "USD", retryTime: 3)
+//            self?.listCoin = listCoins
+            DispatchQueue.main.async {
+                if let getList = self?.viewModel.listCoin {
+                    self?.tableContent.reloadData()
+                    self?.hideLoading()
+                    self?.viewModel.coinsWebSocket(coins: getList, toCurency: CurrencyName.USD.rawValue, retryTime: 3)
+                }
+            }
+            
         }
         viewModel.fetchError = { [weak self] message in
             print("error: \(message)")
-            self?.hideLoading()
-            self?.fetchErrorAlert(message: message)
+            DispatchQueue.main.async {
+                self?.hideLoading()
+                self?.fetchErrorAlert(message: message)
+            }
         }
         viewModel.webSocketResponse = { [weak self] updateValue in
-            self?.coinChangeControl?.editListData(newValue: updateValue)
+            DispatchQueue.main.async {
+                self?.coinChangeControl?.editListData(newValue: updateValue)
+            }
         }
         viewModel.webSocketError = { [weak self] message in
             print("websocket error: \(message)")
@@ -161,17 +170,18 @@ extension ListCoinViewController {
     }
     
     func getListCoin() -> [Coin] {
-        return listCoin
+        return viewModel.listCoin
     }
     
     func updatePriceSelectedData(index: Int, coin: Coin) {
         let getIndex = IndexPath(row: index, section: 0)
+        viewModel.listCoin[index].curency.price = coin.curency.price
+        viewModel.listCoin[index].curency.openDay = coin.curency.openDay
+        viewModel.listCoin[index].curency.countChange()
+        
         guard let cell = tableContent.cellForRow(at: getIndex) as? CointTableViewCell else {
             return
         }
-        listCoin[index].curency.price = coin.curency.price
-        listCoin[index].curency.openDay = coin.curency.openDay
-        listCoin[index].curency.countChange()
         cell.setValue(coin: coin)
         tableContent.reloadRows(at: [getIndex], with: .automatic)
         
@@ -181,7 +191,7 @@ extension ListCoinViewController {
 
 extension ListCoinViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listCoin.count
+        return viewModel.listCoin.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -189,13 +199,13 @@ extension ListCoinViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        let getItem = listCoin[indexPath.row]
+        let getItem = viewModel.listCoin[indexPath.row]
         cell.setValue(coin: getItem)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let getItem = listCoin[indexPath.row]
+        let getItem = viewModel.listCoin[indexPath.row]
         let newsVC = NewsViewController()
         newsVC.setCategory(category: getItem.name)
         let nav = UINavigationController(rootViewController: newsVC)

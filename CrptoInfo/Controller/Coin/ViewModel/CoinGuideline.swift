@@ -15,6 +15,7 @@ protocol CoinGuideline {
     var fetchError: ((String) -> Void)? { get set }
     var webSocketError: ((String) -> Void)? { get set }
     var webSocketResponse: (([String : Any]) -> Void)? { get set }
+    var listCoin: [Coin] { get set }
 }
 
 struct CointUseCase {

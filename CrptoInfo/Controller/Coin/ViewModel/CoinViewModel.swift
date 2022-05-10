@@ -14,7 +14,7 @@ class CoinViewModel {
     var fetchError: ((String) -> Void)?
     var webSocketError: ((String) -> Void)?
     var webSocketResponse: (([String : Any]) -> Void)?
-    
+    var listCoin: [Coin] = []
     
     init(useCase: CointUseCase) {
         self.useCase = useCase.cointDataSource
@@ -33,17 +33,111 @@ class CoinViewModel {
 
 extension CoinViewModel: CoinGuideline {
     func loadCoins(limit: Int, tsym: String, reloadTime: Int) {
-        useCase?.fetchCoin(limit: limit, tsym: tsym, completion: { [weak self] result in
+        
+        var tempListCoin: [Coin] = []
+        var errorMessage: Error? = nil
+        let groupDispatch: DispatchGroup = DispatchGroup()
+        groupDispatch.enter()
+        useCase?.fetchCoin(limit: limit, tsym: tsym, completion: { result in
             switch result {
             case .success(let listCoin):
-                self?.coinResult?(listCoin)
+                tempListCoin = listCoin
             case .failed(let error):
+                errorMessage = error
+            }
+            groupDispatch.leave()
+        })
+        
+        groupDispatch.notify(queue: .global(), execute: { [weak self] in
+            
+            guard let superSelf = self else {
                 if reloadTime > 0 {
                     self?.loadCoins(limit: limit, tsym: tsym, reloadTime: reloadTime - 1)
                     return
                 }
-                self?.fetchError?(error.localizedDescription)
+                return
             }
+            
+            if let getError = errorMessage {
+                if reloadTime > 0 {
+                    self?.loadCoins(limit: limit, tsym: tsym, reloadTime: reloadTime - 1)
+                    return
+                }
+                self?.fetchError?(getError.localizedDescription)
+                return
+            }
+            
+            if superSelf.listCoin.count == 0 {
+                superSelf.listCoin = tempListCoin
+                superSelf.coinResult?(tempListCoin)
+            } else {
+                if superSelf.listCoin.count != tempListCoin.count {
+                    if superSelf.listCoin.count < tempListCoin.count {
+                        var newItems: [Coin] = []
+                        for getItemList1 in tempListCoin {
+                            for index in 0...(superSelf.listCoin.count - 1) {
+                                if getItemList1.name == superSelf.listCoin[index].name &&
+                                    getItemList1.id == superSelf.listCoin[index].id &&
+                                    getItemList1.fullName == superSelf.listCoin[index].fullName &&
+                                    getItemList1._internal == superSelf.listCoin[index]._internal
+                                {
+                                    break
+                                }
+
+                                if index == (superSelf.listCoin.count - 1) {
+                                    newItems.append(getItemList1)
+                                }
+                            }
+                        }
+                        
+                        superSelf.listCoin += newItems
+                        superSelf.coinResult?(superSelf.listCoin)
+                        
+                    } else if superSelf.listCoin.count > tempListCoin.count {
+                        var invalidItems: [Coin] = []
+                        for getItemList1 in superSelf.listCoin {
+                            for index in 0...(tempListCoin.count - 1) {
+                                if getItemList1.name == tempListCoin[index].name &&
+                                    getItemList1.id == superSelf.listCoin[index].id &&
+                                    getItemList1.fullName == superSelf.listCoin[index].fullName &&
+                                    getItemList1._internal == superSelf.listCoin[index]._internal
+                                {
+                                    break
+                                }
+
+                                if index == (tempListCoin.count - 1) {
+                                    invalidItems.append(getItemList1)
+                                }
+                            }
+                            
+                            
+                        }
+                        var newData: [Coin] = []
+                        for getItemList1 in superSelf.listCoin {
+                            for index in 0...(invalidItems.count - 1) {
+                                if getItemList1.name == tempListCoin[index].name &&
+                                    getItemList1.id == superSelf.listCoin[index].id &&
+                                    getItemList1.fullName == superSelf.listCoin[index].fullName &&
+                                    getItemList1._internal == superSelf.listCoin[index]._internal
+                                {
+                                    break
+                                }
+                                
+                                if index == (tempListCoin.count - 1) {
+                                    newData.append(getItemList1)
+                                }
+                                
+                            }
+                        }
+                        superSelf.listCoin = newData
+                        superSelf.coinResult?(newData)
+                    }
+                } else {
+                    superSelf.coinResult?(superSelf.listCoin)
+                }
+                
+            }
+            
         })
     }
     
