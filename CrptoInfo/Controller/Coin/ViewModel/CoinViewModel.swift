@@ -55,6 +55,7 @@ extension CoinViewModel: CoinGuideline {
                     self?.loadCoins(limit: limit, tsym: tsym, reloadTime: reloadTime - 1)
                     return
                 }
+                self?.fetchError?(ErrorMessage.unknow.localizedDescription)
                 return
             }
             

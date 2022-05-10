@@ -22,3 +22,17 @@ struct Constants {
 enum CurrencyName: String {
     case USD = "USD"
 }
+
+enum ErrorMessage: Error, LocalizedError {
+    case unknow
+    
+    var errorDescription: String? {
+        switch self {
+        case .unknow:
+            return NSLocalizedString(
+                "Unknow error",
+                comment: ""
+            )
+        }
+    }
+}
