@@ -23,8 +23,8 @@ extension NewsUseCase: NewsNetworkProvider {
     func fetchNews(category: String, completion: @escaping (NetworkResult<[News]>) -> Void) {
         
         let params: NewsGETParams = NewsGETParams(lang: "EN", categories: category)
-        
-        HttpHelper.shared.session.request("https://min-api.cryptocompare.com/data/v2/news/", method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
+        // "https://min-api.cryptocompare.com/data/v2/news/"
+        HttpHelper.shared.session.request(Constants.URL.Route.listNews.urlAPI, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
             switch response.result {
             case .success(let data):
                 let getJSON = JSON(data)

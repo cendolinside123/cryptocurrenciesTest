@@ -22,7 +22,8 @@ extension CoinUseCase: CoinNetworkProvider {
     func fetchCoin(limit: Int, tsym: String, completion: @escaping (NetworkResult<[Coin]>) -> Void) {
         let params = CoinGetParams(limit: limit, tsym: tsym)
         
-        HttpHelper.shared.session.request("https://min-api.cryptocompare.com/data/top/totaltoptiervolfull", method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
+        // "https://min-api.cryptocompare.com/data/top/totaltoptiervolfull"
+        HttpHelper.shared.session.request(Constants.URL.Route.topTierCoin.urlAPI, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
             switch response.result {
             case .success(let data):
                 let getJSON = JSON(data)
