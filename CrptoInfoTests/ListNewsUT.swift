@@ -15,20 +15,7 @@ class ListNewsUT: XCTestCase {
         let expect = expectation(description: "Should return news data")
         
         viewModel.newsResult = { result in
-            var indexLoop = 0
-            for responseItem in result {
-                
-                XCTAssertEqual(responseItem.id, expectedResult[indexLoop].id)
-                XCTAssertEqual(responseItem.body, expectedResult[indexLoop].body)
-                XCTAssertEqual(responseItem.categories, expectedResult[indexLoop].categories)
-                XCTAssertEqual(responseItem.guid, expectedResult[indexLoop].guid)
-                XCTAssertEqual(responseItem.source, expectedResult[indexLoop].source)
-                XCTAssertEqual(responseItem.tags, expectedResult[indexLoop].tags)
-                XCTAssertEqual(responseItem.title, expectedResult[indexLoop].title)
-                indexLoop = indexLoop + 1
-            }
-            
-            
+            XCTAssertEqual(result, expectedResult)
             expect.fulfill()
         }
         viewModel.loadNews(category: "USD", reloadTime: 3)

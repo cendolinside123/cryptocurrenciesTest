@@ -21,6 +21,13 @@ extension SourceInfo {
         img = json["source_info"]["img"].stringValue
     }
 }
+extension SourceInfo: Equatable {
+    static func == (lhs: SourceInfo, rhs: SourceInfo) -> Bool {
+        return lhs.name == rhs.name &&
+        lhs.lang == rhs.lang &&
+        lhs.img == rhs.img
+    }
+}
 
 struct News {
     let id: String
@@ -42,5 +49,17 @@ extension News {
         tags = json["tags"].stringValue
         categories = json["categories"].stringValue
         source_info = SourceInfo(json: json)
+    }
+}
+extension News: Equatable {
+    static func == (lhs: News, rhs: News) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.guid == rhs.guid &&
+        lhs.title == rhs.title &&
+        lhs.source == rhs.source &&
+        lhs.body == rhs.body &&
+        lhs.tags == rhs.tags &&
+        lhs.categories == rhs.categories &&
+        lhs.source_info == rhs.source_info
     }
 }
