@@ -56,8 +56,11 @@ extension CoinChangeUseCase: CoinChangeNetworkProvider {
     }
     
     func disconect() {
-        socket?.disconnect()
-        isConected = false
+        if isConected {
+            socket?.disconnect()
+            isConected = false
+        }
+        
     }
     
     
