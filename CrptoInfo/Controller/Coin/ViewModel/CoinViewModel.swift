@@ -143,7 +143,7 @@ extension CoinViewModel: CoinGuideline {
     }
     
     func coinsWebSocket(coins: [Coin], toCurency: String, retryTime: Int) {
-        webSocket?.connect(coins: coins, toCurency: "USD", completion: { [weak self] result in
+        webSocket?.connect(coins: coins, toCurency: toCurency, completion: { [weak self] result in
             switch result {
             case .success(let isAllowed):
                 print("Diperboleh kan untuk connect? \(isAllowed)")
