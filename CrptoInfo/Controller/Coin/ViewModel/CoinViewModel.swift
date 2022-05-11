@@ -186,7 +186,7 @@ extension CoinViewModel: CoinGuideline {
             case .failed(let error):
                 print("coinsWebSocket error: \(error.localizedDescription)")
                 if retryTime > 0 {
-                    self?.coinsWebSocket(toCurency: "USD", retryTime: retryTime - 1)
+                    self?.coinsWebSocket(toCurency: toCurency, retryTime: retryTime - 1)
                     return
                 }
                 self?.webSocketError?("failed to connect cause: \(error.localizedDescription)")
