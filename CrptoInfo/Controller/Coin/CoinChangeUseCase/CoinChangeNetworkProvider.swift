@@ -9,6 +9,7 @@ import Foundation
 
 protocol CoinChangeNetworkProvider {
     func connect(coins: [Coin], toCurency: String, completion: (NetworkResult<Bool>) -> Void)
+    func addNewEntry(coins: [Coin], toCurency: String)
     func disconect()
     var coinResult: (([String: Any]) -> Void)? { get set }
     var fetchError: ((String) -> Void)? { get set }

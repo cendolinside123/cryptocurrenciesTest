@@ -55,6 +55,22 @@ extension CoinChangeUseCase: CoinChangeNetworkProvider {
         
     }
     
+    func addNewEntry(coins: [Coin], toCurency: String) {
+        if isConected {
+            listSubs = coins.filter({ $0.curency.toSymbol != ""}).map({ item -> String in
+                return "2~\(item.curency.lastmarket)~\(item.name)~\(toCurency)"
+            })
+            let props: [String: Any] = ["action": "SubAdd", "subs": listSubs]
+            do {
+                jsonData = try JSONSerialization.data(withJSONObject: props, options: [])
+                socket?.write(data: jsonData!, completion: nil)
+            } catch let error {
+                print("error converting to json: \(error)")
+            }
+        }
+        
+    }
+    
     func disconect() {
         if isConected {
             socket?.disconnect()
