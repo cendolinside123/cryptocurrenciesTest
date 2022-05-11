@@ -136,7 +136,34 @@ extension CoinViewModel: CoinGuideline {
                         superSelf.coinResult?(newData)
                     }
                 } else {
-                    superSelf.coinResult?(superSelf.listCoin)
+                    
+                    var findDifference: [Coin] = []
+                    
+                    for getItemList1 in tempListCoin {
+                        for index in 0...(superSelf.listCoin.count - 1) {
+                            if getItemList1.name == superSelf.listCoin[index].name &&
+                                getItemList1.id == superSelf.listCoin[index].id &&
+                                getItemList1.fullName == superSelf.listCoin[index].fullName &&
+                                getItemList1._internal == superSelf.listCoin[index]._internal
+                            {
+                                break
+                            }
+
+                            if index == (superSelf.listCoin.count - 1) {
+                                findDifference.append(getItemList1)
+                            }
+                        }
+                    }
+                    
+                    
+                    if findDifference.count == 0 {
+                        superSelf.coinResult?(superSelf.listCoin)
+                    } else {
+                        superSelf.tempCoin = findDifference
+                        superSelf.listCoin += findDifference
+                        superSelf.coinResult?(superSelf.listCoin)
+                    }
+                    
                 }
                 
             }

@@ -49,6 +49,19 @@ class ListCoinUT: XCTestCase {
         wait(for: [expect], timeout: 1)
     }
     
+    func testRefetch_offlineTestV3() {
+        var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: SuccessCoinListUseCaseV2(), coinDataRealtime: nil))
+        let expectedResult = MockData.generateCoinListV4()
+        let expect = expectation(description: "Should return coin data")
+        viewModel.listCoin = MockData.generateCoinListV3()
+        viewModel.coinResult = { result in
+            XCTAssertEqual(viewModel.listCoin, expectedResult)
+            expect.fulfill()
+        }
+        viewModel.loadCoins(limit: 2, tsym: "USD", reloadTime: 3)
+        wait(for: [expect], timeout: 1)
+    }
+    
     func testFailedLoad_offlineTest() {
         var viewModel: CoinGuideline = CoinViewModel(useCase: CointUseCase(cointDataSource: FailedCoinListUseCase(), coinDataRealtime: nil))
         let expect = expectation(description: "Should failed load")
