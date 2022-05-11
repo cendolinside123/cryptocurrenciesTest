@@ -142,15 +142,15 @@ extension CoinViewModel: CoinGuideline {
         })
     }
     
-    func coinsWebSocket(coins: [Coin], toCurency: String, retryTime: Int) {
-        webSocket?.connect(coins: coins, toCurency: toCurency, completion: { [weak self] result in
+    func coinsWebSocket(toCurency: String, retryTime: Int) {
+        webSocket?.connect(coins: self.listCoin, toCurency: toCurency, completion: { [weak self] result in
             switch result {
             case .success(let isAllowed):
                 print("Diperboleh kan untuk connect? \(isAllowed)")
             case .failed(let error):
                 print("coinsWebSocket error: \(error.localizedDescription)")
                 if retryTime > 0 {
-                    self?.coinsWebSocket(coins: coins, toCurency: "USD", retryTime: retryTime - 1)
+                    self?.coinsWebSocket(toCurency: "USD", retryTime: retryTime - 1)
                     return
                 }
                 self?.webSocketError?("failed to connect cause: \(error.localizedDescription)")

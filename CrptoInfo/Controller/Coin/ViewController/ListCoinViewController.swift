@@ -38,7 +38,7 @@ class ListCoinViewController: UIViewController {
                 if let getList = self?.viewModel.listCoin {
                     self?.tableContent.reloadData()
                     self?.hideLoading()
-                    self?.viewModel.coinsWebSocket(coins: getList, toCurency: CurrencyName.USD.rawValue, retryTime: 3)
+                    self?.viewModel.coinsWebSocket(toCurency: CurrencyName.USD.rawValue, retryTime: 3)
                 }
             }
             
