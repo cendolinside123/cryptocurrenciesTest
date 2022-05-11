@@ -67,6 +67,10 @@ extension CoinChangeUseCase: CoinChangeNetworkProvider {
             } catch let error {
                 print("error converting to json: \(error)")
             }
+        } else {
+            self.connect(coins: coins, toCurency: toCurency, completion: { _ in
+                
+            })
         }
         
     }
