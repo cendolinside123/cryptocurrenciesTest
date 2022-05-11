@@ -5,9 +5,9 @@
 2. After finish data request process then the result will be store on property listCoin on viewmodel and coinResult closure called to inform viewcontroller to reload tableview and call method coinsWebSocket(toCurency:retryTime:) (access through viewmodel) to activate web socket to get real time data, all web socket will send from viewmodel to viewcontroller through webSocketResponse closure and do update property listCoin data
 
 in this project I use:
-1. Alamofire
-2. SwiftyJSON
-3. Starscream
+1. Alamofire --> for do API request
+2. SwiftyJSON --> for simplfy encapsulate json from API request to struct model
+3. Starscream --> for web socket
 
 
 ### inside loadCoins(limit:tsym:reloadTime:)
