@@ -56,6 +56,29 @@ struct MockData {
         return listCoin
     }
     
+    static func generateCoinListV3() -> [Coin] {
+        var listCoin: [Coin]
+        
+        listCoin = [
+            Coin(id: "931668", name: "LUNA", fullName: "Terra", _internal: "LUNA", curency: Curency(fromsymbol: "LUNA", toSymbol: "USD", market: "CCCAGG", price: 11.1, lastmarket: "Bitfinex", openDay: 17.32)),
+            Coin(id: "7605", name: "ETH", fullName: "Ethereum", _internal: "ETH", curency: Curency(fromsymbol: "ETH", toSymbol: "USD", market: "CCCAGG", price: 2394.15, lastmarket: "Bitfinex", openDay: 2230.96))
+        ]
+        
+        return listCoin
+    }
+    
+    static func generateCoinListV4() -> [Coin] {
+        var listCoin: [Coin]
+        
+        listCoin = [
+            Coin(id: "931668", name: "LUNA", fullName: "Terra", _internal: "LUNA", curency: Curency(fromsymbol: "LUNA", toSymbol: "USD", market: "CCCAGG", price: 11.1, lastmarket: "Bitfinex", openDay: 17.32)),
+            Coin(id: "7605", name: "ETH", fullName: "Ethereum", _internal: "ETH", curency: Curency(fromsymbol: "ETH", toSymbol: "USD", market: "CCCAGG", price: 2394.15, lastmarket: "Bitfinex", openDay: 2230.96)),
+            Coin(id: "1182", name: "BTC", fullName: "Bitcoin", _internal: "BTC", curency: Curency(fromsymbol: "BTC", toSymbol: "USD", market: "CCCAGG", price: 42416.88, lastmarket: "Bitfinex", openDay: 43094.25))
+        ]
+        
+        return listCoin
+    }
+    
     static func generateEmptyCoinList() -> [Coin] {
         var listCoin: [Coin]
         
