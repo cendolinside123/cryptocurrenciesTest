@@ -22,29 +22,27 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="7ep-WM-okD">
-                                <rect key="frame" x="162" y="438" width="90" height="89.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7ep-WM-okD" secondAttribute="height" multiplier="1:1" id="xtw-gg-Sy5"/>
-                                </constraints>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="e4k-yb-IqB">
+                                <rect key="frame" x="161" y="766.5" width="92.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7ep-WM-okD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3Oh-Iy-ddR"/>
-                            <constraint firstItem="7ep-WM-okD" firstAttribute="top" secondItem="LzD-GS-hBW" secondAttribute="bottom" constant="69" id="AYb-zp-PdJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LzD-GS-hBW" secondAttribute="trailing" constant="66.5" id="JLP-pE-XBs"/>
+                            <constraint firstItem="e4k-yb-IqB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="emQ-jU-i9U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e4k-yb-IqB" secondAttribute="bottom" constant="69" id="ezz-cN-bLx"/>
                             <constraint firstItem="LzD-GS-hBW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66.5" id="hGZ-lZ-gVA"/>
                             <constraint firstItem="LzD-GS-hBW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="265" id="jfW-qA-f2f"/>
-                            <constraint firstItem="7ep-WM-okD" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.1" id="kn5-PB-bKz"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
 </document>
