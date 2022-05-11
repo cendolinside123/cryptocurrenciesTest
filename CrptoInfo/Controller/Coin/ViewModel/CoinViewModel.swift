@@ -16,6 +16,8 @@ class CoinViewModel {
     var webSocketResponse: (([String : Any]) -> Void)?
     var listCoin: [Coin] = []
     
+    private var tempCoin: [Coin] = []
+    
     init(useCase: CointUseCase) {
         self.useCase = useCase.cointDataSource
         self.webSocket = useCase.coinDataRealtime
@@ -90,7 +92,7 @@ extension CoinViewModel: CoinGuideline {
                                 }
                             }
                         }
-                        
+                        superSelf.tempCoin = newItems
                         superSelf.listCoin += newItems
                         superSelf.coinResult?(superSelf.listCoin)
                         
@@ -143,6 +145,13 @@ extension CoinViewModel: CoinGuideline {
     }
     
     func coinsWebSocket(toCurency: String, retryTime: Int) {
+        
+        if tempCoin.count != 0 {
+            webSocket?.addNewEntry(coins: tempCoin, toCurency: toCurency)
+            tempCoin = []
+            return
+        }
+        
         webSocket?.connect(coins: self.listCoin, toCurency: toCurency, completion: { [weak self] result in
             switch result {
             case .success(let isAllowed):
