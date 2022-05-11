@@ -28,18 +28,15 @@ class ListCoinViewController: UIViewController {
         uiControll = ListCoinUIControll(controller: self)
         coinChangeControl = CoinWebSocketUIController(controller: self)
         bind()
-        viewModel.loadCoins(limit: 50, tsym: "USD", reloadTime: 3)
+        viewModel.loadCoins(limit: 50, tsym: CurrencyName.USD.rawValue, reloadTime: 3)
     }
     
     private func bind() {
-        viewModel.coinResult = { [weak self] listCoins in
-//            self?.listCoin = listCoins
+        viewModel.coinResult = { [weak self] _ in
             DispatchQueue.main.async {
-                if let getList = self?.viewModel.listCoin {
-                    self?.tableContent.reloadData()
-                    self?.hideLoading()
-                    self?.viewModel.coinsWebSocket(toCurency: CurrencyName.USD.rawValue, retryTime: 3)
-                }
+                self?.tableContent.reloadData()
+                self?.hideLoading()
+                self?.viewModel.coinsWebSocket(toCurency: CurrencyName.USD.rawValue, retryTime: 3)
             }
             
         }
